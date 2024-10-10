@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userModel = require('./models/userSchema')
+const corsOptions={
+    origin: process.env.APPLICATION_URL,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
+}
 
 const app = express()
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://crud-mern-app:7QWe9jeqd2rzrelK@crud-app.u5e0j.mongodb.net/crud?retryWrites=true&w=majority&appName=crud-app')
