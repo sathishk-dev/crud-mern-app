@@ -18,6 +18,7 @@ export default function Home() {
         axios.delete(`${import.meta.env.VITE_SERVER_URL}/deleteUser/`+id)
         .then(res => {
             console.log(res);
+            setUsers(users.filter(user => user._id !== id))
         })
         .catch(err => console.log(err))
     }
