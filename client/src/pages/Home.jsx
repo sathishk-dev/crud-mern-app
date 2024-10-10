@@ -18,7 +18,7 @@ export default function Home() {
         axios.delete(`${import.meta.env.VITE_SERVER_URL}/deleteUser/`+id)
         .then(res => {
             console.log(res);
-            setUsers(users.filter(user => user._id !== id))
+            setUsers(prevUsers => prevUsers.filter(user => user._id !== id));
         })
         .catch(err => console.log(err))
     }
@@ -50,7 +50,7 @@ export default function Home() {
                                         <td className="px-6 py-4">{user.userAge}</td>
                                         <td className="px-6 py-4 flex gap-3">
                                             <Link to={`/update/${user._id}`} className='bg-blue-500 text-white rounded px-4 py-2'>Update</Link>
-                                            <a href="" onClick={(e)=> {handleDelete(user._id)}} className='bg-red-500 text-white rounded px-4 py-2'>Delete</a>
+                                            <a href="" onClick={(e)=> {e.preventDefault(); handleDelete(user._id)}} className='bg-red-500 text-white rounded px-4 py-2'>Delete</a>
                                         </td>
                                     </tr>
                                 })
