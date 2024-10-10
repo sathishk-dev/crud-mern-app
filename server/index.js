@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userModel = require('./models/userSchema')
 const corsOptions={
     origin: process.env.APPLICATION_URL,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 200
 }
 
 const app = express()
