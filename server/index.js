@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const userModel = require('./models/userSchema')
 const corsOptions={
-    origin: process.env.APPLICATION_URL,
+    origin: [process.env.APPLICATION_URL, "https://crud-mern-app-ebon.vercel.app"],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 200
