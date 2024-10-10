@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://crud-mern-app:7QWe9jeqd2rzrelK@crud-app.u5e0j.mongodb.net/?retryWrites=true&w=majority&appName=crud-app')
+mongoose.connect('mongodb+srv://crud-mern-app:7QWe9jeqd2rzrelK@crud-app.u5e0j.mongodb.net/crud?retryWrites=true&w=majority&appName=crud-app')
 
 app.post('/createUser',(req,res)=>{
     userModel.create(req.body)
